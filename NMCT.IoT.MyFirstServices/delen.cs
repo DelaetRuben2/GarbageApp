@@ -12,15 +12,16 @@ using Newtonsoft.Json;
 
 namespace NMCT.IoT.MyFirstServices
 {
-    public static class Function1
+    public static class delen
     {
-        [FunctionName("sumfunction")]
-        public static async Task<IActionResult> sumfunction([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "math/{age1}+{age2}")]HttpRequest req,decimal age1, decimal age2, ILogger log)
+        
+        [FunctionName("deelfunction")]
+        public static async Task<IActionResult> deelfunction([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "math/{age1}/{age2}")]HttpRequest req, decimal age1, decimal age2, ILogger log)
         {
             try
             {
 
-                string result = (age1 + age2).ToString();
+                string result = (age1 / age2).ToString();
                 return new OkObjectResult(result);
             }
             catch (Exception)
@@ -43,4 +44,5 @@ namespace NMCT.IoT.MyFirstServices
 
         }
     }
+    
 }
